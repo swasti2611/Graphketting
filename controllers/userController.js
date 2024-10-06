@@ -13,6 +13,7 @@ let signIn = asyncErrorHandler(async (req, res, next) => {
     if (!name || !lastName || !email || !password || !confirmPassword) {
         return next(new customError("All fields are required", 400));
     }
+    
 
     // Check if passwords match
     if (password !== confirmPassword) {
