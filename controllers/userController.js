@@ -1,6 +1,6 @@
 const { customError } = require("../middleware/errorHandler");
 const User = require("../model/userModel");
-const bcrypt = require('bcrypt');
+
 const jwt = require('jsonwebtoken');
 const asyncErrorHandler = require("../middleware/asyncErrorHandler");
 
@@ -27,7 +27,7 @@ let signIn = asyncErrorHandler(async (req, res, next) => {
     }
 
     // Hash the password
-    let hashPassword = await bcrypt.hash(password, 10);
+  
 
     // Create new user
     let user = await User.create({ name, lastName, email, password: hashPassword });
